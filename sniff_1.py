@@ -1,6 +1,6 @@
 import pcap
-def print_pkt(ts, pkt, arg):
+def print_pkt(ts, pkt):
 	print repr(pkt)
-
-pc = pcap.pcap()
-pc.loop(-1,print_pkt)
+	print "----------------------------------------------------------------"
+pc = pcap.pcap('wlan0')
+pc.loop(print_pkt)
