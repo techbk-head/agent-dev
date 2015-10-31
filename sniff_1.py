@@ -1,6 +1,8 @@
-import pcap
+import pcap, dpkt
 def print_pkt(ts, pkt):
-	print repr(pkt)
-	print "----------------------------------------------------------------"
-pc = pcap.pcap('wlan0')
+	pcw = dpkt.pcap.Writer(open('pkts.pcap','wb'))
+	pcw.writepkt(pkt)
+#f = open("out.pcap", 'w')
+#pc = pcap.pcap(dumpfile='out.pcap')
+pc = pcap.pcap()
 pc.loop(print_pkt)
