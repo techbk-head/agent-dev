@@ -2,7 +2,7 @@ import pcap
 pc = pcap.pcap()
 
 
-def __my_handler(ts,pkt,d):
+def __my_handler(ts,pkt):
 	print pkt
 
-pc.loop(0,__my_handler)
+pc.loop(__my_handler)
